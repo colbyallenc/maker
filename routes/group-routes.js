@@ -19,7 +19,7 @@ router.get('/groups/new',
 // <form method="post" action="/`group`s">
 router.post('/groups',
   ensure.ensureLoggedIn('/login'),
-  myUploader.single('groupPic'),
+  myUploader.single('groupPhoto'),
   (req, res, next) => {
     console.log('');
     console.log('req.file ~~~~~~~~~~~~~~~~~~~~~~');

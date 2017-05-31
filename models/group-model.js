@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const User     = require('./user-model.js');
 const Schema   = mongoose.Schema;
+const Comment = require('./comment-model.js');
 
 const groupSchema = Schema({
     groupTitle: String,
