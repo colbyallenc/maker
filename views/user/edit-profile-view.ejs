@@ -1,0 +1,134 @@
+<!-- <h2> Edit Your Profile </h2> -->
+
+<!-- <% if (typeof successMessage !== 'undefined' && successMessage.length > 0) { %>
+  <div class="success"> <%= successMessage %> </div>
+<% } %> -->
+
+<!-- <% if (typeof errorMessage !== 'undefined') { %>
+  <div class="error"> <%= errorMessage %> </div>
+<% } %> -->
+
+<!-- <form method="post" action="/profile/edit">
+  <label for="name-input"> Your Name </label>
+  <input  id="name-input" type="text"
+      name="profileName" value="<%= user.name %>">
+  <br>
+
+  <label for="username-input"> Account Name </label>
+  <input  id="username-input" type="text"
+      name="profileUsername" value="<%= user.username %>">
+  <br>
+
+  <label for="current-password-input"> Current Password </label>
+  <input  id="current-password-input" type="password"
+      name="profileCurrentPassword">
+  <br>
+
+  <label for="new-password-input"> New Password </label>
+  <input  id="new-password-input" type="password"
+      name="profileNewPassword">
+  <br>
+
+  <button> Save </button>
+</form> -->
+
+<div class="container">
+    <h1>Edit Profile</h1>
+  	<hr>
+	<div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <img src="<%= user.userPhoto%>" class="avatar img-circle profile-image" alt="avatar">
+          <h6>Upload a different photo...</h6>
+
+          <input type="file" class="form-control">
+        </div>
+      </div>
+
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+        <div class="alert alert-info alert-dismissable">
+          <a class="panel-close close" data-dismiss="alert">×</a>
+          <i class="fa fa-coffee"></i>
+          This is an <strong>.alert</strong>. Use this to show important messages to the user.
+        </div>
+        <h3>Personal info</h3>
+
+        <form class="form-horizontal" role="form" method="post" action="/profile/edit" >
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Full Name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" name="profileName" value="<%= user.name %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Username:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" name="profileUsername" value="<%= user.username %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label"> User Job Position:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" name="userType">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Time Zone:</label>
+            <div class="col-lg-8">
+              <div class="ui-select">
+                <select id="user_time_zone" class="form-control">
+                  <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                  <option value="Alaska">(GMT-09:00) Alaska</option>
+                  <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                  <option value="Arizona">(GMT-07:00) Arizona</option>
+                  <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                  <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                  <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                  <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Seeking..</label>
+            <div class="col-lg-8">
+              <div class="ui-select">
+                <select multiple>
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <label class="col-md-3 control-label">Password:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="password">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Confirm password:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="password" name="password">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <input type="button" class="btn btn-primary" value="Save Changes">
+              <span></span>
+              <input type="reset" class="btn btn-default" value="Cancel">
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+<hr>

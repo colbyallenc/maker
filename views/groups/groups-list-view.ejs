@@ -1,0 +1,29 @@
+<% if (groups.length === 0) { %>
+
+  <h2> You Don't Have Groups Yet </h2>
+
+<% } else { %>
+
+  <h2> Your Groups </h2>
+
+  <% if (successMessage.length > 0) { %>
+    <div class="success"> <%= successMessage %> </div>
+  <% } %>
+
+  <ul>
+    <% groups.forEach((oneGroup) => { %>
+      <li>
+        <h3> <%= oneGroup.groupTitle %> </h3>
+
+        <p> <%= oneGroup.content %> </p>
+
+        <img src="<%= oneGroup.groupPhoto %>">
+      </li>
+    <% }) %>
+  </ul>
+
+<% } %>
+
+<a href="/groups/new">
+  Create a Group
+</a>

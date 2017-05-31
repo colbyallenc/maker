@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <title>m a k e r.</title>
+      <!-- Bootstrap Core CSS -->
+      <link href="/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom CSS -->
+      <link href="/css/full-width-pics.css" rel="stylesheet">
+      <link href="/css/landing-page.css" rel="stylesheet">
+      <!-- Custom Fonts -->
+      <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+      <!-- Bootstrap Core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Bootstrap Core CSS -->
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Theme CSS -->
+      <!-- <link href="css/freelancer.min.css" rel="stylesheet"> -->
+      <!-- Custom Fonts -->
+      <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+
+  </head>
+  <body>
+    <header>
+      <!-- Navigation -->
+      <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+          <div class="container topnav">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <div class="navbar-logo">
+                  <a class="navbar-image" href="#"> <img width="85px" src="/img/logo.png"> </a>
+                  <a class="navbar-brand topnav" href="#"> meet your m a k e r .</a>
+                </div>
+              </div>
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li > <a href="/"> Home </a> </li>
+                      <% if (typeof user !== 'undefined') { %>
+                        <!-- <% if (user.role === 'admin') { %>
+                          <li class="page-scroll"> <a href="/users"> Manage Users </a> </li>
+                        <% } %> -->
+                        <!-- <li class="page-scroll"> <a href="/groups"> Groups </a> </li>
+                        <li> <a href="/profile/edit"> Edit Profile </a> </li> -->
+                        <li> <a href="/profile/edit"> Update Profile </a> </li>
+                        <li> <a href="/logout"> Log Out </a> </li>
+                      <% } else { %>
+                        <li> <a data-target="#login-button" data-toggle="modal"> Log in </a> </li>
+                      <% } %>
+                    </ul>
+              </div>
+              <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container -->
+      </nav>
+      <!-- Header -->
+    <% if (typeof user !== 'undefined') { %>
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+
+                      <%- body -%>
+
+                  </div>
+              </div>
+          </div>
+          <!-- /.container -->
+
+    <% } else { %>
+      <div class="intro-header">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="intro-message">
+                          <h1>What do you do?</h1>
+                          <h3>Do more of it with Maker.</h3>
+                          <hr class="intro-divider">
+                          <ul class="list-inline intro-social-buttons">
+                            <li>
+                              <a data-target="#signup-button" class="btn btn-default btn-lg portfolio-link" data-toggle="modal"> Sign up </a>
+                              <a data-target="#login-button" class="btn btn-default btn-lg portfolio-link" data-toggle="modal"> Log in </a>
+                            </li>
+
+                              <!-- <li>
+                                  <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                              </li>
+                              <li>
+                                  <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                              </li>
+                              <li>
+                                  <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                              </li> -->
+
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- /.container -->
+      </div>
+      <% } %>
+    </header>
+
+
+  <!-- Page Content -->
+
+  <!-- SignUp Modals -->
+      <div class="portfolio-modal modal fade" id="signup-button" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-content">
+              <div class="close-modal" data-dismiss="modal">
+                  <div class="lr">
+                      <div class="rl">
+                      </div>
+                  </div>
+              </div>
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-8 col-lg-offset-2">
+                          <div class="modal-body">
+                            <div class="inputForm">
+                            <h2> Sign Up </h2>
+                            <form method="post" action="/signup" enctype="multipart/form-data">
+                              <label for="name-input"> Full Name </label>
+                              <input  id="name-input" type="text" name="signupName">
+                              <br>
+                              <label for="username-input"> User name</label>
+                              <input  id="username-input" type="text" name="signupUsername">
+                              <br>
+                              <label for="password-input"> Password </label>
+                              <input  id="password-input" type="password" name="signupPassword">
+                              <br>
+                              <label for="userphoto-upload">Upload Profile Pic</label>
+                              <input id="userphoto-upload" type="file" name="userPhoto">
+                              <br>
+                              <button class="btn btn-default">Sign Up </button>
+                            </form>
+                            <a href="/auth/facebook">Log In with Facebook</a>
+                            <br>
+                            <a href="/auth/google">Log In with Google</a>
+                            <br>
+                            <p>Do you already have an account?<a href="/login"> Log In </a>
+                            </p>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+<!-- Login Modal       -->
+      <div class="portfolio-modal modal fade" id="login-button" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-content">
+              <div class="close-modal" data-dismiss="modal">
+                  <div class="lr">
+                      <div class="rl">
+                      </div>
+                  </div>
+              </div>
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-8 col-lg-offset-2">
+                          <div class="modal-body">
+                            <div class="inputForm">
+                              <h2> Log In </h2>
+                              <form method="post" action="/login">
+                                <label for="username-input"> User name </label>
+                                <input  id="username-input" type="text" name="loginUsername">
+                                <br>
+                                <label for="password-input"> Password </label>
+                                <input  id="password-input" type="password" name="loginPassword">
+                                <br>
+                              <button class="btn btn-default"> Log In </button>
+                              </form>
+                              <a href="/auth/facebook">Log In with Facebook</a>
+                              <br>
+                              <a href="/auth/google">Log In with Google</a>
+                              <br>
+                              <p>Don't have an account?<a href="/signup"> Sign Up </a></p>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+    <!-- Theme JavaScript -->
+    <script src="js/freelancer.min.js"></script>
+
+  </body>
+</html>
