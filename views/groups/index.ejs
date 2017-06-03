@@ -10,14 +10,12 @@
     <div class="success"> <%= successMessage %> </div>
   <% } %>
 
-  <ul>
+  <ul class="groupList">
     <% groups.forEach((oneGroup) => { %>
-      <li>
-        <h3> <%= oneGroup.groupTitle %> </h3>
-
-        <p> <%= oneGroup.content %> </p>
-
-        <img src="<%= oneGroup.groupPhoto %>">
+      <li class="groupContent">
+        <a href="/groups/<%= oneGroup._id %>"><img class="groupCover" style="width: 50px" src="<%= oneGroup.groupPhoto %>"></a>
+        <a href="/groups/<%= oneGroup._id %>"><h3> <%= oneGroup.groupTitle %> </h3></a>
+        <!-- <p> <%= oneGroup.content %> </p> -->
       </li>
     <% }) %>
   </ul>

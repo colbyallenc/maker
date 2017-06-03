@@ -38,7 +38,7 @@ router.post('/profile/edit',
         // if there's a user with the username and it's not you
         if (foundUser && !foundUser._id.equals(req.user._id)) {
           res.render('user/edit-profile-view.ejs', {
-            errorMessage: 'Username already taken. 😤'
+            // errorMessage: 'Username already taken. 😤'
           });
           return;
         }
@@ -50,6 +50,7 @@ router.post('/profile/edit',
         req.user.name = req.body.profileName;
         req.user.username = req.body.profileUsername;
         // *********
+
 
         // if both passwords are filled and the current password is correct
         if (currentPassword && newPassword
@@ -67,7 +68,8 @@ router.post('/profile/edit',
             return;
           }
           req.flash('success', 'Changes saved. 👻');
-          res.redirect('/profile/edit');
+          // ********
+          res.redirect('/profile');
         });
 
         // User.findByIdAndUpdate(
