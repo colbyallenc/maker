@@ -10,12 +10,10 @@ const groupSchema = Schema({
     groupPhoto: String,
     groupDemand: String,
     groupView: String,
+    groupMembers: [ String ],
 
-    comments: [ {
-    content: String,
-    authorId: { type: Schema.Types.ObjectId },
-    imagePath: String
-    } ]
+    comments: [ Comment.schema ]
+
 });
 
 

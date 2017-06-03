@@ -44,13 +44,18 @@
                   </button>
                   <div class="navbar-logo">
                   <a class="navbar-image" href="#"> <img width="85px" src="/img/logo.png"> </a>
-                  <a class="navbar-brand topnav" href="#"> meet your m a k e r .</a>
-                </div>
+                  <a class="navbar-brand topnav" href="/"> m a k e r . </a>
+                  <a class="navbar-brand topnav" href="/startup"> startup jobs</a>
+                  <a class="navbar-brand topnav" href="/recruit"> recruit </a>
+                  <a class="navbar-brand topnav" href="/invest"> invest </a>
+                  </div>
               </div>
+
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav navbar-right">
                       <li > <a href="/"> Home </a> </li>
+
                       <% if (typeof user !== 'undefined') { %>
                         <!-- <% if (user.role === 'admin') { %>
                           <li class="page-scroll"> <a href="/users"> Manage Users </a> </li>
@@ -58,8 +63,8 @@
                         <!-- <li class="page-scroll"> <a href="/groups"> Groups </a> </li>
                         <li> <a href="/profile/edit"> Edit Profile </a> </li> -->
 
-                        <li> <a href="/groups"> My Groups </a> </li>
-                        <li> <a href="/profile/edit"> Update Profile </a> </li>
+                        <!-- <li> <a href="/groups"> My Groups </a> </li> -->
+                        <!-- <li> <a href="/profile/edit"> Update Profile </a> </li> -->
                         <li> <a href="/logout"> Log Out </a> </li>
                       <% } else { %>
                         <li> <a data-target="#login-button" data-toggle="modal"> Log in </a> </li>
@@ -94,7 +99,7 @@
                           <hr class="intro-divider">
                           <ul class="list-inline intro-social-buttons">
                             <li>
-                              <a data-target="#signup-button" class="btn btn-default btn-lg portfolio-link" data-toggle="modal"> Sign up </a>
+                              <a data-target="#signup-button" class="btn btn-default btn-lg portfolio-link" data-toggle="modal"> Join </a>
                               <a data-target="#login-button" class="btn btn-default btn-lg portfolio-link" data-toggle="modal"> Log in </a>
                             </li>
 

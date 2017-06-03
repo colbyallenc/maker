@@ -18,12 +18,9 @@ const multer             = require('multer');
 // Load our ENVIRONMENT VARIABLES from the .env file in dev
 // (this is for dev only, but in prod it just doesn't do anything)
 require('dotenv').config();
-
 // Tell node to run the code contained in this file
 // (this sets up passport and our strategies)
 require('./config/passport-config.js');
-
-
 mongoose.connect(process.env.MONGODB_URI);
 
 const app = express();

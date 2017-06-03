@@ -53,6 +53,7 @@ router.get('/groups', ensure.ensureLoggedIn(), (req, res, next) => {
           return;
         }
         res.render('groups/index.ejs', {
+          user: req.user,
           groups: groupsList,
           successMessage: req.flash('success')
         });
@@ -68,26 +69,40 @@ router.get('/groups/:id',  ensure.ensureLoggedIn(), (req, res, next) => {
     if(err){
       next(err);
       return;
+    } else if (aGroup.comments.length > 0) {
+      aGroup.comments.forEach((oneComment)=>{
+          var authorId = oneComment.authorId;
+          User.findById(authorId,(err, theAuthor)=>{
+            res.render('groups/group-index.ejs', {
+              groups: aGroup,
+              author: theAuthor
+            });
+          });
+        });
+    } else {
+      res.render('groups/group-index.ejs', {
+        groups: aGroup,
+      });
     }
-    res.render('groups/group-index.ejs', {
-      groups: aGroup
-    });
   });
 });
 
-
+//below make it :groupId
 router.post('/groups/:id', ensure.ensureLoggedIn(), myUploader.single('commentImagePath'), (req, res, next) => {
-    const postID = req.params.id;
+    // const postID = req.params.id; make this a gorup ID
+    const auntherID = req.user._id;
+    const myGroupID = req.params.id;
 
     const addcomment = new Comment({
         content: req.body.postComment,
         authorId: req.user._id,
-        imagePath: `/uploads/${req.file.filename}`,
-        imageName: req.body.commentImageName
+        // imagePath: `/uploads/${req.file.filename}`,
+        // imageName: req.body.commentImageName
     });
 
-    Post.findOneAndUpdate(
-        postID,
+//change everything to group
+    Group.findOneAndUpdate(
+        myGroupID,
         {$push: { comments: addcomment }},
             (err, thepost) => {
                 if (err) {
@@ -103,6 +118,8 @@ router.post('/groups/:id', ensure.ensureLoggedIn(), myUploader.single('commentIm
               });
          });
       });
+
+
 
 
 module.exports = router;
