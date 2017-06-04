@@ -10,6 +10,16 @@ const router      = express.Router();
 const myUploader  = multer({ dest: path.join(__dirname, '../public/uploads' ) });
 
 // router.get('/user/:id', (req, res, next) => {
+router.get('/profile',
+  ensure.ensureLoggedIn('/login'),
+  (req, res, next) => {
+    res.render('index.ejs', {
+      successMessage: req.flash('success')
+    });
+  }
+);
+
+// router.get('/user/:id', (req, res, next) => {
 router.get('/profile/edit',
   ensure.ensureLoggedIn('/login'),
   (req, res, next) => {
@@ -37,7 +47,7 @@ router.post('/profile/edit',
         }
         // if there's a user with the username and it's not you
         if (foundUser && !foundUser._id.equals(req.user._id)) {
-          res.render('user/edit-profile-view.ejs', {
+          res.render('/user/edit-profile-view.ejs', {
             // errorMessage: 'Username already taken. 😤'
           });
           return;

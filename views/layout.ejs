@@ -13,16 +13,17 @@
       <link href="/css/full-width-pics.css" rel="stylesheet">
       <link href="/css/landing-page.css" rel="stylesheet">
       <!-- Custom Fonts -->
-      <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+      <!-- <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+      <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+      <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"> -->
       <!-- Bootstrap Core CSS -->
       <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <!-- Bootstrap Core CSS -->
       <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <!-- Custom Fonts -->
-      <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-      <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+      <!-- <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+      <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"> -->
+      <!-- <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css"> -->
       <!-- Bootstrap Core CSS -->
       <link href="/groupFiles/css/bootstrap.min.css" rel="stylesheet">
       <!-- Custom CSS -->
@@ -43,8 +44,8 @@
                       <span class="icon-bar"></span>
                   </button>
                   <div class="navbar-logo">
-                  <a class="navbar-image" href="#"> <img width="85px" src="/img/logo.png"> </a>
-                  <a class="navbar-brand topnav" href="/"> m a k e r . </a>
+                  <a class="navbar-image" href="#"> <img width="80px" src="/img/app-logo.png"> </a>
+                  <a class="navbar-brand topnav" href="/">  </a>
                   <a class="navbar-brand topnav" href="/startup"> startup jobs</a>
                   <a class="navbar-brand topnav" href="/recruit"> recruit </a>
                   <a class="navbar-brand topnav" href="/invest"> invest </a>
@@ -54,7 +55,7 @@
               <!-- Collect the nav links, forms, and other content for toggling -->
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav navbar-right">
-                      <li > <a href="/"> Home </a> </li>
+                      <li > <a data-target="#signup-button"  class="portfolio-link" data-toggle="modal"> Join </a> </li>
 
                       <% if (typeof user !== 'undefined') { %>
                         <!-- <% if (user.role === 'admin') { %>
@@ -67,7 +68,7 @@
                         <!-- <li> <a href="/profile/edit"> Update Profile </a> </li> -->
                         <li> <a href="/logout"> Log Out </a> </li>
                       <% } else { %>
-                        <li> <a data-target="#login-button" data-toggle="modal"> Log in </a> </li>
+                        <li> <a data-target="#login-button"  class="portfolio-link" data-toggle="modal"> Log in </a> </li>
                       <% } %>
                     </ul>
               </div>
@@ -90,38 +91,59 @@
 
     <% } else { %>
       <div class="intro-header">
-          <div class="container">
+          <div class="container-fluid">
               <div class="row">
                   <div class="col-lg-12">
-                      <div class="intro-message">
-                          <h1>What do you do?</h1>
-                          <h3>Do more of it with Maker.</h3>
-                          <hr class="intro-divider">
-                          <ul class="list-inline intro-social-buttons">
-                            <li>
-                              <a data-target="#signup-button" class="btn btn-default btn-lg portfolio-link" data-toggle="modal"> Join </a>
-                              <a data-target="#login-button" class="btn btn-default btn-lg portfolio-link" data-toggle="modal"> Log in </a>
-                            </li>
-
-                              <!-- <li>
-                                  <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                              </li>
-                              <li>
-                                  <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                              </li>
-                              <li>
-                                  <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                              </li> -->
-
-                          </ul>
+                    <div class="col-lg-2">
+                        <img width="150px" src="./img/white-trans-app-logo.png">
                       </div>
+                      <div class="col-lg-4">
+                      <div class="intro-message">
+                        <h1 > M a k e r </h1>
+                          <h3 class="text-lowercase"> where the world meets startups </h3>
+                          <hr class="intro-divider">
+                        </div>
+                      </div>
+                      <div class="col-md-6 buttons">
+                          <ul class="list-inline intro-social-buttons">
+                            <li><a data-target="#signup-button" class="btn btn-default btn-lg portfolio-link" data-toggle="modal"><span class="tag-name">Find a Startup Job</span></a></li><br><br>
+                            <li><a data-target="#login-button" class="btn btn-default btn-lg portfolio-link" data-toggle="modal"><span class="tag-name"> Post a Job</span></a></li><br><br>
+                            <li><a data-target="#login-button" class="btn btn-default btn-lg portfolio-link" data-toggle="modal"><span class="tag-name"> Invest in a Startup </span></a></li>
+                          </ul>
+                      <!-- </div> -->
+                    <!-- </div> -->
+                    </div>
                   </div>
               </div>
           </div>
           <!-- /.container -->
       </div>
+
+      <!-- Page Content -->
+      <div class="container">
+
+          <!-- Introduction Row -->
+          <div class="row">
+              <div class="col-lg-12 home-text">
+                  <h1 class="page-header"> Get a Job at a Startup </h1>
+                    <p class="text-lowercase">  <small>Apply privately to 65,512 startup jobs with one application <br> No middlemen · See salary and equity upfront</small> </p>
+                  <br>
+              </div>
+          </div>
+
+          <hr>
+
+
+      </div>
+
+
       <% } %>
+
+
+
+
     </header>
+
 
 
   <!-- Page Content -->

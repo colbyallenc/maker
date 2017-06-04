@@ -4,6 +4,7 @@ const passport    = require('passport');
 const multer      = require('multer');
 const path        = require('path');
 const User        = require('../models/user-model.js');
+const Group       = require('../models/group-model.js');
 const router      = express.Router();
 const myUploader  = multer({ dest: path.join(__dirname, '../public/uploads' ) });
 
@@ -22,12 +23,25 @@ router.get('/', (req, res, next) => {
   // } else {
   //   res.render('index');
   // }
+  Group.find(
+    { groupOwner: req.user._id },
+    (err, groupsList) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      res.render('index.ejs', {
+        user: req.user,
+        groups: groupsList,
+        successMessage: req.flash('success')
+      });
 
-  res.render('index', {
-    successMessage: req.flash('success'),
-    user: req.user,
-  });
-  console.log(user);
+  // res.render('index', {
+  //   successMessage: req.flash('success'),
+  //   user: req.user,
+  // });
+  // console.log(user);
+});
 });
 
 // ____________________________________________________

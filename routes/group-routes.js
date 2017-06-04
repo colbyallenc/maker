@@ -4,6 +4,8 @@ const multer  = require('multer');
 const path    = require('path');
 const Group   = require('../models/group-model.js');
 const User    = require('../models/user-model.js');
+const Post    = require('../models/post-model.js');
+const Comment     = require('../models/comment-model.js');
 const bcrypt      = require('bcrypt');
 const passport    = require('passport');
 const router      = express.Router();
@@ -80,7 +82,7 @@ router.get('/groups/:id',  ensure.ensureLoggedIn(), (req, res, next) => {
           });
         });
     } else {
-      res.render('groups/group-index.ejs', {
+      res.render('groups/group-index', {
         groups: aGroup,
       });
     }
@@ -114,7 +116,7 @@ router.post('/groups/:id', ensure.ensureLoggedIn(), myUploader.single('commentIm
                         next(err);
                         return;
                     }
-                  res.redirect('/groups/group-index');
+                  res.redirect('/groups/group-index.ejs');
               });
          });
       });

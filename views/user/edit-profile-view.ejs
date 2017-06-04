@@ -1,14 +1,14 @@
-<!-- <h2> Edit Your Profile </h2> -->
 
-<!-- <% if (typeof successMessage !== 'undefined' && successMessage.length > 0) { %>
+
+<% if (typeof successMessage !== 'undefined' && successMessage.length > 0) { %>
   <div class="success"> <%= successMessage %> </div>
-<% } %> -->
+<% } %>
 
-<!-- <% if (typeof errorMessage !== 'undefined') { %>
+<% if (typeof errorMessage !== 'undefined') { %>
   <div class="error"> <%= errorMessage %> </div>
-<% } %> -->
+<% } %>
 
-<!-- <form method="post" action="/profile/edit">
+<form method="post" action="/profile/edit">
   <label for="name-input"> Your Name </label>
   <input  id="name-input" type="text"
       name="profileName" value="<%= user.name %>">
@@ -30,7 +30,7 @@
   <br>
 
   <button> Save </button>
-</form> -->
+</form>
 
 <div class="container">
     <h1>Edit Profile</h1>
@@ -39,10 +39,11 @@
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
+          <form method="post" action="/profile/edit" enctype="multipart/form-data">
           <img src="<%= user.userPhoto%>" class="avatar img-circle profile-image" alt="avatar">
           <h6>Upload a different photo...</h6>
-
           <input type="file" class="form-control">
+        </form>
         </div>
       </div>
 
@@ -122,7 +123,7 @@
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save Changes">
+              <input type="submit" class="btn btn-primary" value="Save Changes">
               <span></span>
               <input type="reset" class="btn btn-default" value="Cancel">
             </div>

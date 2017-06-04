@@ -416,6 +416,10 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+body {
+  -webkit-animation-name: body;
+  -webkit-animation-duration: 2s;
+}
 
 body,
 html {
@@ -430,8 +434,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-family: 'Slabo 27px', "Lato","Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    /*font-weight: 700;*/
 }
 .error {
   background-color: red;
@@ -451,9 +455,13 @@ h6 {
     font-size: 14px;
 }
 
+.home-text{
+  text-align: center;
+}
+
 .navbar-image {
   position:absolute;
-  top: -20px;
+  top: -10px;
   left: -70px;
   /*margin-top: -20px;*/
 }
@@ -467,32 +475,45 @@ h6 {
     font-weight: 400;
 }
 
+.buttons {
+  padding: 30px;
+}
+
 .intro-header {
     padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-bottom: 50px;
     text-align: center;
-    color: #f8f8f8;
-    background: url(../img/background-logo.jpg) no-repeat center center;
+    -webkit-animation-name: intro-header;
+    -webkit-animation-duration: 2s;
+    color: white;
+    max-height: 400px;
+    /*background-color: #4b66c6;*/
+    /*background-color: rgba(8, 40, 110, 0.74);*/
+    /*opacity: 0.5;*/
+    background: url(../img/bgmaker.jpg) no-repeat center center;
     background-size: cover;
 }
 
+/*commented out below*/
 .intro-message {
+  text-align: left;
     position: relative;
-    padding-top: 20%;
-    top: 155px;
+    padding-top: 8%;
+    /*top: 50px;*/
     padding-bottom: 20%;
 }
 
+
 .intro-message > h1 {
     margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    font-size: 4em;
+    text-shadow: 5px 5px 5px rgba(0,0,0,0.6);
+    font-size: 6em;
 }
 
 .intro-divider {
-    width: 400px;
-    border-top: 1px solid #f8f8f8;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+    width: 550px;
+    border-top: 2px solid #f8f8f8;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
 }
 
 .intro-message > h3 {
@@ -510,7 +531,8 @@ h6 {
 
     ul.intro-social-buttons > li {
         display: block;
-        margin-bottom: 20px;
+        padding-top: 30px;
+        /*margin-bottom: 20px;*/
         padding: 0;
     }
 
@@ -523,7 +545,7 @@ h6 {
     }
 }
 
-.network-name {
+.tag-name {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 400;
@@ -573,7 +595,7 @@ h6 {
     margin-top: 0;
 }
 
-@media(max-width:1199px) {
+@media(max-width:200px) {
     ul.banner-social-buttons {
         float: left;
         margin-top: 15px;
@@ -765,12 +787,12 @@ p.copyright {
   }
 }
 
-@-webkit-keyframes fadeIn {
+@-webkit-keyframes body {
   from {
     opacity: 0;
   }
   to {
-    opacity: 1;
+    opacity: 5;
   }
 }
 
@@ -783,7 +805,7 @@ p.copyright {
   }
 }
 
-@-webkit-keyframes slideDown {
+@-webkit-keyframes intro-header {
   0% {
     -webkit-transform: translateY(-100%);
             transform: translateY(-100%);

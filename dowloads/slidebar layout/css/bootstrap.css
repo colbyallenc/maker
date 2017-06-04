@@ -1082,7 +1082,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
@@ -1324,7 +1324,7 @@ mark,
 .text-nowrap {
   white-space: nowrap;
 }
-.text-lowercase {
+/*.text-lowercase {
   text-transform: lowercase;
 }
 .text-uppercase {
@@ -1332,7 +1332,7 @@ mark,
 }
 .text-capitalize {
   text-transform: capitalize;
-}
+}*/
 .text-muted {
   color: #777;
 }
