@@ -106,12 +106,12 @@ router.post('/groups/:id', ensure.ensureLoggedIn(), myUploader.single('commentIm
     Group.findOneAndUpdate(
         myGroupID,
         {$push: { comments: addcomment }},
-            (err, thepost) => {
+            (err, thefeed) => {
                 if (err) {
                     next(err);
                     return;
                 }
-                thepost.save((err) => {
+                thefeed.save((err) => {
                     if(err) {
                         next(err);
                         return;
@@ -119,6 +119,7 @@ router.post('/groups/:id', ensure.ensureLoggedIn(), myUploader.single('commentIm
                   res.redirect('/groups/group-index.ejs');
               });
          });
+         
       });
 
 

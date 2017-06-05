@@ -8,11 +8,7 @@ const PostSchema = Schema({
       picPath: String,
       picName: String,
 
-      comments: [ {
-      content: String,
-      authorId: { type: Schema.Types.ObjectId },
-      imagePath: String,
-      } ]
+      comments: [ Comment.schema ]
   });
 
 const Post = mongoose.model('Post', PostSchema);

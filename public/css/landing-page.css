@@ -486,12 +486,17 @@ h6 {
     -webkit-animation-name: intro-header;
     -webkit-animation-duration: 2s;
     color: white;
-    max-height: 400px;
+    max-height: 600px;
     /*background-color: #4b66c6;*/
     /*background-color: rgba(8, 40, 110, 0.74);*/
     /*opacity: 0.5;*/
     background: url(../img/bgmaker.jpg) no-repeat center center;
     background-size: cover;
+    /* Create the parallax scrolling effect */
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 
 /*commented out below*/

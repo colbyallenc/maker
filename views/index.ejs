@@ -1,22 +1,28 @@
 <!-- <h1><%= title %></h1> -->
 
 <!-- req.flash() returns an array (wat) -->
-
-
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
+          <!-- <div class="col-sm-6"> -->
+          <div class="portfolio-hero-header">
+            <img class="portfolio-hero-header-logo" style="width: 200px" src="<%= user.userPhoto %>"/>
+            <h1 class="portfolio-hero-header-h1"> <%= user.name %> </h1>
+            <ul class="portfolio-hero-header-description">
+              <li><a href="/profile/edit">Update Profile</a> </li>
+              <li><a href="/profile"> View Profile</a> </li>
+              <li><a href="/groups/new">Create a Make</a> </li>
+            </ul>
+          <!-- </div> -->
+        </div>
 
-
-<div class="col-sm-6">
+<!-- <div class="col-sm-6"> -->
         <!-- Posts panel container -->
-<div class="posts-panel grid">
-  <!-- Panel's header -->
-  <header class="panel-header">
-    <h1 class="panel-title"> My Jobs </h1>
-  </header>
-
-
+    <div class="posts-panel grid">
+      <!-- Panel's header -->
+      <header class="panel-header">
+        <h1 class="panel-title"> My Jobs </h1>
+      </header>
     <!-- Posts list -->
     <section class="posts-list">
       <% if (groups.length === 0) { %>
@@ -40,26 +46,39 @@
       </div>
       <% } %>
     </section>
+  </div>
 
 
+        <!-- Posts list -->
+        <!-- <section class="posts-list">
+          <% if (groups.length === 0) { %>
+            <h2> You Don't Have Groups Yet </h2>
+          <% } else { %>
+            <% groups.forEach((oneGroup) => { %>
+          <div class="post-item">
+            <a href="/groups/<%= oneGroup._id %>" class="post-thumbnail"> -->
+              <!-- <img src="https://static.pexels.com/photos/66274/sunset-poppy-backlight-66274.jpeg" alt=""> -->
+            <!-- </a>
+            <div class="post-text">
+              <a href="/groups/<%= oneGroup._id %>">
+                <h3 class="post-title"> <%= oneGroup.groupTitle %></h3>
+              </a>
+              <div class="post-meta">
+                <span class="meta"><span class="meta-icon fa fa-user-circle-o" aria-hidden="true"></span><a class="meta-text">Steve Jobs</a></span>
+                <span class="meta"><span class="meta-icon fa fa-clock-o" aria-hidden="true"></span><span class="meta-text">22/06/2030</span></span>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+          <% } %>
+        </section> -->
 
 
   </div>
-  <div class="col-sm-6">
-  <div class="portfolio-hero-header">
-    <img class="portfolio-hero-header-logo" style="width: 200px" src="<%= user.userPhoto %>"/>
-    <h1 class="portfolio-hero-header-h1"> <%= user.name %> </h1>
-    <ul class="portfolio-hero-header-description">
-      <li><a href="/profile/edit">Update Profile</a> </li>
-      <li><a href="/profile"> View Profile</a> </li>
-      <li><a href="/groups/new">Create a Make</a> </li>
-    </ul>
-  </div>
-</div>
+
       </div>
-      </div>
+
     </div>
-
 
 
 <a href="/groups/new">Create a Group</a>
