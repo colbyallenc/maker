@@ -19,7 +19,9 @@ const userSchema = new Schema(
     // Login with Facebook users
     facebookID: { type: String },
     // Login with Google users
-    googleID: { type: String }
+    googleID: { type: String },
+    posts: [ { type: Schema.Types.ObjectId, ref: 'Post' } ],
+    tasks: [{type: Schema.Types.ObjectId, ref: 'Task'}]
   },
   { timestamps: true }
 );

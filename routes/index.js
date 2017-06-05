@@ -16,6 +16,8 @@ router.get('/', (req, res, next) => {
   console.log('\n');
   console.log('USER (from Passport middleware)');
   console.log(req.user);
+console.log("GROUPS~~~~~~~~~~");
+  
 
   // Render a completely different view for logged in users
   // if (req.user) {
@@ -40,7 +42,7 @@ router.get('/', (req, res, next) => {
   //   successMessage: req.flash('success'),
   //   user: req.user,
   // });
-  // console.log(user);
+  // console.log(groups);
 });
 });
 

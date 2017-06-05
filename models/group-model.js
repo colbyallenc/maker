@@ -1,18 +1,26 @@
 const mongoose = require('mongoose');
-const User     = require('./user-model.js');
 const Schema   = mongoose.Schema;
-const Comment = require('./comment-model.js');
+const User     = require('./user-model.js');
+const Task = require('./task-model.js');
+const Post = require('./post-model.js');
 
-const groupSchema = Schema({
+const groupSchema = new Schema({
     groupTitle: String,
-    content: String,
     groupOwner: { type: Schema.Types.ObjectId },
     groupPhoto: String,
-    groupDemand: String,
+    groupTask: [{
+      content: String,
+      authorId: { type: Schema.Types.ObjectId },
+    }],
+    groupDescription: String,
     groupView: String,
     groupMembers: [ String ],
 
-    comments: [ Comment.schema ]
+    posts: [ Post.schema ],
+    tasks: [Task.schema]
+
+    // posts: [ { type: Schema.Types.ObjectId, ref: 'Post' } ]
+    // user: [ User.schema ]
 
 });
 

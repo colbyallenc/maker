@@ -18,8 +18,32 @@ body {
 }
 
 .group-name {
-  font-size: 6em;
+  text-shadow: 2px 3px 2px rgba(0,0,0,0.6);
+  font-size: 3em;
+  -webkit-animation-name: group-name;
+  -webkit-animation-duration: 0.7s;
+
 }
+
+.groupPage-logo {
+/*border: 47px solid blue;*/
+width: 150px;
+height: 150px;
+border: 1px solid #d1d1d1;
+border-radius: 10%;
+box-shadow: 5px 5px 10px #888888
+}
+
+@-webkit-keyframes group-name {
+    0% {
+      -webkit-transform: translateY(-100%);
+              transform: translateY(-100%);
+    }
+    100% {
+      -webkit-transform: translateY(0%);
+              transform: translateY(0%);
+    }
+  }
 
 #wrapper {
     padding-left: 0;
@@ -234,31 +258,32 @@ ul.alert-dropdown {
 }
 
 .panel-top {
-  border-color: rgba(9, 12, 16, 0.82)7;
+  border-color: #1e2739;
   /*min-height: 90px;*/
+  box-shadow: 5px 5px 10px #888888;
 }
 .panel-top > .panel-heading {
   color: #fff;
-  background-color: rgba(9, 12, 16, 0.82);
-  border-color: rgba(9, 12, 16, 0.82);
+  background-color: #1e2739;
+  border-color: #1e2739;
 }
 .panel-top > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: rgba(9, 12, 16, 0.82);
+  border-top-color: #1e2739;
 }
 .panel-top> .panel-heading .badge {
   color: rgba(9, 12, 16, 0.82);
-  background-color: #fff;
+  background-color: #1e2739;
 }
 .panel-top > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: rgba(9, 12, 16, 0.82);
+  border-bottom-color: #1e2739;
 }
 
 .panel-top > a {
-    color: #337ab7;
+    color: #fff;
 }
 
 .panel-top > a:hover {
-    color: #337ab7;
+    color: #fff;
 }
 
 .panel-post {

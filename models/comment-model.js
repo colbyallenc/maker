@@ -3,7 +3,7 @@ const Schema   = mongoose.Schema;
 const User     = require('./user-model.js');
 
 const CommentsSchema = new Schema({
-     content: String,
+     content: { String },
      authorId: { type: Schema.Types.ObjectId },
     });
 
