@@ -107,7 +107,7 @@ router.post('/profile/edit',
 //   { username: 'nizar' },
 //   { $set: { role: 'admin' } }
 // )
-router.get('/users', (req, res, next) => {
+router.get('groups/users', (req, res, next) => {
   // If you are logged in AND and admin
   if (req.user && req.user.role === 'admin') {
     User.find((err, usersList) => {

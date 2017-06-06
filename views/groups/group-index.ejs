@@ -158,9 +158,23 @@
 
             <div class="container-fluid">
 
+<style>
+  #join-team {
+    /*border: 1px solid black;*/
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+  }
+</style>
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
+
+                        <form method="post" action="/groups/<%= groups._id %>/members">
+                          <button type="submit" name="button">j o i n + </button>
+                        </form>
+                        
                         <h1 class="page-header">
                         <span> <img class="groupPage-logo" width="50px" height="50px" src="../img/logo.jpg"> </span>  <span class="group-name"> <%= groups.groupTitle %> </span> <small style="color: #d1d1d1">Dashboard</small>
                         </h1>
@@ -260,36 +274,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.row -->
 
-                <!-- <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-bar-chart-o fa-fw"></i> Area Chart</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-area-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- /.row -->
 
                 <div class="row">
-                    <!-- <div class="col-lg-4">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title"><i class="fa fa-long-arrow-right fa-fw"></i> Donut Chart</h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="morris-donut-chart"></div>
-                                <div class="text-right">
-                                    <a href="#">View Details <i class="fa fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+
                     <div class="col-sm-8">
                         <div class="panel panel-default myBox">
                             <div class="panel-heading">
@@ -318,6 +306,10 @@
                                 </div>
 
                           <%    } %>
+
+
+
+
                                 <div class="text-right">
                                     <a href="#">View All Activity <i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
@@ -372,6 +364,13 @@ background: #b8babc;
 
     </div>
     <!-- /#wrapper -->
+
+
+
+
+
+
+
 
     <!-- Modal -->
     <div id="postModal" class="modal fade" role="dialog">

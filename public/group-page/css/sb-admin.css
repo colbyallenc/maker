@@ -53,6 +53,7 @@ box-shadow: 5px 5px 10px #888888
     width: 100%;
     padding: 0;
     background-color: #fff;
+    box-shadow: 0px 5px 20px #888888;
 }
 
 .huge {
@@ -253,8 +254,8 @@ ul.alert-dropdown {
   text-align: center;
 }
 
-.view-details{
-
+.panel{
+  box-shadow: 0px 5px 20px #888888;
 }
 
 .panel-top {

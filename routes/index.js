@@ -16,8 +16,8 @@ router.get('/', (req, res, next) => {
   console.log('\n');
   console.log('USER (from Passport middleware)');
   console.log(req.user);
-console.log("GROUPS~~~~~~~~~~");
-  
+
+
 
   // Render a completely different view for logged in users
   // if (req.user) {
@@ -25,26 +25,41 @@ console.log("GROUPS~~~~~~~~~~");
   // } else {
   //   res.render('index');
   // }
-  Group.find(
-    { groupOwner: req.user._id },
-    (err, groupsList) => {
-      if (err) {
-        next(err);
-        return;
+Group.aggregate([{$sample: {size:6}}],
+    (err,foundGroups)=>{
+    if (err) {
+      next(err);
+      return;
       }
-      res.render('index.ejs', {
-        user: req.user,
-        groups: groupsList,
-        successMessage: req.flash('success')
+
+     res.render('index.ejs',{
+      successMessage:req.flash('success'),
+      errorMessage: req.flash('error'),
+      groups:foundGroups,
+      user: req.user,
       });
 
-  // res.render('index', {
-  //   successMessage: req.flash('success'),
-  //   user: req.user,
-  // });
-  // console.log(groups);
+  });
 });
-});
+
+//   Group.find(
+//     { groupOwner: req.user._id },
+//     (err, groupsList) => {
+//       if (err) {
+//         next(err);
+//         return;
+//       }
+//       res.render('index.ejs', {
+//         user: req.user,
+//         groups: groupsList,
+//         successMessage: req.flash('success')
+//       });
+//
+// });
+
+
+
+
 
 // ____________________________________________________
 //

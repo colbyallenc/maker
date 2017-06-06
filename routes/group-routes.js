@@ -3,6 +3,7 @@ const ensure  = require('connect-ensure-login');
 const multer  = require('multer');
 const path    = require('path');
 const Group   = require('../models/group-model.js');
+const Member  = require('../models/member-model.js');
 const User    = require('../models/user-model.js');
 const Post    = require('../models/post-model.js');
 const Task   = require('../models/task-model.js');
@@ -68,11 +69,11 @@ router.get('/groups', ensure.ensureLoggedIn(), (req, res, next) => {
 // GET     /groups/id
 router.get('/groups/:id',  ensure.ensureLoggedIn(), (req, res, next) => {
     var groupID = req.params.id;
+
   Group.findById(groupID, (err, aGroup) => {
     if(err){
       next(err);
       return;
-
     } else if (aGroup.posts.length > 0) {
       aGroup.posts.forEach((onePost)=>{
           var post = onePost.content;
@@ -92,6 +93,7 @@ router.get('/groups/:id',  ensure.ensureLoggedIn(), (req, res, next) => {
     }
   });
 
+
 });
 
 
@@ -104,11 +106,7 @@ router.post('/groups/:id/post', ensure.ensureLoggedIn(), (req, res, next) => {
     const addcomment = new Post({
         content: req.body.postComment,
         authorId: req.user._id
-
     });
-
-    console.log(req.body.postComment);
-
 //change everything to group
       Group.findById(
           myGroupID,
@@ -123,6 +121,65 @@ router.post('/groups/:id/post', ensure.ensureLoggedIn(), (req, res, next) => {
           });
       });
   });
+
+
+
+  router.get('/groups/:id/members',  ensure.ensureLoggedIn(), (req, res, next) => {
+      var groupID = req.params.id;
+
+    Group.findById(groupID, (err, aGroup) => {
+      if(err){
+        next(err);
+        return;
+      } else if (aGroup.members.length > 0) {
+        aGroup.members.forEach((oneMember)=>{
+            var members = oneMember.name;
+            var memberId = oneMember.memberId;
+            User.findById(memberId,(err, theMember)=>{
+              res.render('groups/group-members-view.ejs', {
+                groups: aGroup,
+                members: members,
+                theMember: theMember
+              });
+            });
+          });
+      } else {
+        res.render('groups/group-members-view.ejs', {
+          groups: aGroup,
+        });
+      }
+    });
+  });
+
+
+  // POST     /groups/id
+                          //below make it :groupId
+  router.post('/groups/:id/members', ensure.ensureLoggedIn(), (req, res, next) => {
+      // const postID = req.params.id; make this a gorup ID
+      // const author = req.user;
+      const myGroupID = req.params.id;
+      const addmember = new Member({
+          memberId: req.user._id
+      });
+  //change everything to group
+        Group.findById(
+            myGroupID,
+                (err, thefeed) => {  if (err) {  next(err);
+                        return;
+                    }
+
+                thefeed.members.push(addmember);
+
+                thefeed.save((err) => {  if(err) {  next(err);
+                    return;
+                        }
+
+                    res.redirect(`/groups/${myGroupID}/members`);
+            });
+
+        });
+    });
+
 
 
 module.exports = router;

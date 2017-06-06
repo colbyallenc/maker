@@ -1,40 +1,17 @@
-<!--
-<div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-          <div>
-          <div class="portfolio-hero-header">
-            <img class="portfolio-hero-header-logo" src="http://placehold.it/200"/>
-            <h1 class="portfolio-hero-header-h1"></h1>
-            <ul class="portfolio-hero-header-description">
-              <li>Portfolio Example</li>
-              <li>Super Clean</li>
-              <li>Super Simple</li>
-            </ul>
-            <ul class="portfolio-hero-header-menu">
-              <li><a class="button primary" href="#">Link 1</a></li>
-              <li><a class="button primary" href="#">Link 2</a></li>
-              <li><a class="button primary" href="#">Link 3</a></li>
-            </ul>
-          </div> -->
+  <div id="page-wrapper">
 
-
+<div class="container-fluid">
   <div class="row">
     <div class="col-lg-12">
       <h2 class="page-header my-groups"> m y g r o u p s    </h2>
-
-
 
 <% if (groups.length === 0) { %>
   <h2> You Don't Have Groups Yet </h2>
 <% } else { %>
 
-
-
-  <% if (successMessage.length > 0) { %>
+<% if (successMessage.length > 0) { %>
     <div class="success"> <%= successMessage %> </div>
-  <% } %>
-
+<% } %>
 
 <% groups.forEach((oneGroup) => { %>
     <div class="col-lg-4 col-sm-6 text-center">
@@ -50,7 +27,9 @@
 <% } %>
 <hr>
 </div>
-
+</div>
+</div>
+</div>
 
  <a href="/groups/new">Create a Group</a>  <br><a href="/"> < back </a>
 

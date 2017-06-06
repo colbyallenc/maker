@@ -3,6 +3,7 @@ const Schema   = mongoose.Schema;
 const User     = require('./user-model.js');
 const Task = require('./task-model.js');
 const Post = require('./post-model.js');
+const Member = require('./member-model.js');
 
 const groupSchema = new Schema({
     groupTitle: String,
@@ -14,8 +15,7 @@ const groupSchema = new Schema({
     }],
     groupDescription: String,
     groupView: String,
-    groupMembers: [ String ],
-
+    members: [ Member.schema ],
     posts: [ Post.schema ],
     tasks: [Task.schema]
 

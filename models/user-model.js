@@ -21,7 +21,8 @@ const userSchema = new Schema(
     // Login with Google users
     googleID: { type: String },
     posts: [ { type: Schema.Types.ObjectId, ref: 'Post' } ],
-    tasks: [{type: Schema.Types.ObjectId, ref: 'Task'}]
+    tasks: [{type: Schema.Types.ObjectId, ref: 'Task'}],
+    members: [{type: Schema.Types.ObjectId, ref: 'Member'}]
   },
   { timestamps: true }
 );
