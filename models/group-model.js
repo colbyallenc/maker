@@ -13,7 +13,7 @@ const groupSchema = new Schema({
       content: String,
       authorId: { type: Schema.Types.ObjectId },
     }],
-    groupDescription: String,
+    content: String,
     groupView: String,
     members: [ Member.schema ],
     posts: [ Post.schema ],

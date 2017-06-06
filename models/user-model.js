@@ -10,8 +10,9 @@ const userSchema = new Schema(
       default: 'normal user'
       },
     userPhoto: { type: String },
-    jobTitle: { type: String },
-    jobDescription: { type: String},
+    skills: { type: String },
+    about: { type: String},
+    hobbies: {type: String},
 
     // Traditional registration users
     username: { type: String },

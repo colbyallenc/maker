@@ -1,6 +1,5 @@
 
 
-
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -117,23 +116,23 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-fw fa-bar-chart-o"></i> News Feed </a>
-                    </li>
-                    <li>
-                        <a href="/groups/task"><i class="fa fa-fw fa-table"></i> Task List </a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-fw fa-edit"></i> Messenger </a>
-                    </li>
-                    <li>
-                        <a href=""><i class="fa fa-fw fa-desktop"></i> Jobs </a>
-                    </li>
-                    <li>
-                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Forms </a>
-                    </li>
+                    <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href=""><i class="fa fa-fw fa-bar-chart-o"></i> n e w s F e e d </a>
+                </li>
+                <li>
+                    <a href="/groups/task"><i class="fa fa-fw fa-table"></i> t a s k L i s t </a>
+                </li>
+                <li>
+                    <a href=""><i class="fa fa-fw fa-edit"></i> I n b o x </a>
+                </li>
+                <li>
+                    <a href=""><i class="fa fa-fw fa-desktop"></i> t e a m M a k e r s  </a>
+                </li>
+                <li>
+                    <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> J o b s </a>
+                </li>
                     <!-- <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
@@ -154,7 +153,7 @@
             <!-- /.navbar-collapse -->
         </nav>
 
-        <div id="page-wrapper">
+        <!-- <div id="page-wrapper"> -->
 
             <div class="container-fluid">
 
@@ -171,26 +170,38 @@
                 <div class="row">
                     <div class="col-lg-12">
 
+
+
                         <form method="post" action="/groups/<%= groups._id %>/members">
                           <button type="submit" name="button">j o i n + </button>
                         </form>
-                        
+
+                        <div>
+
+                        </div>
+
+
                         <h1 class="page-header">
-                        <span> <img class="groupPage-logo" width="50px" height="50px" src="../img/logo.jpg"> </span>  <span class="group-name"> <%= groups.groupTitle %> </span> <small style="color: #d1d1d1">Dashboard</small>
+                        <span> <img class="groupPage-logo" width="50px" height="50px" src="<%=groups.groupPhoto%>"> </span>  <span class="group-name"> <%= groups.groupTitle %> </span> <small style="color: #d1d1d1">Dashboard</small>
                         </h1>
+
                     </div>
                 </div>
-                <!-- /.row -->
 
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="alert alert-info alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            <i class="fa fa-info-circle"></i>  <strong>You have no new messages. </strong>
-                            <!-- Click  <a href="" class="alert-link"> here </a> to view your messages. -->
-                        </div>
-                    </div>
+                  <div class="col-md-12">
+                  <div class="col-md-3">
+                  </div>
+                  <div class="col-md-9">
+                      <div class="group-content"> <p><%= groups.content %></p>  </div>
+                  </div>
                 </div>
+              </div>
+              <br><br>
+
+                <!-- /.row -->
+
+
                 <!-- /.row -->
 
                 <div class="row">
@@ -200,7 +211,7 @@
                                 <div class="row">
                                   <div class="col-xs-12">
                                    <img src="../img/messenger.png">
-                                        <div class="panel-text"> m e s s e n g e r</div>
+                                        <div class="panel-text"> i n b o x </div>
                                     </div>
                                 </div>
                             </div>
@@ -220,7 +231,7 @@
                                   <a href="/groups/task">
                                     <div class="col-xs-12">
                                        <img src="../img/new-task.png">
-                                       <div class="panel-text "> n e w   t a s k s </div>
+                                       <div class="panel-text "> +t a s k s </div>
                                     </div>
                                   </a>
                                 </div>
@@ -241,7 +252,7 @@
                                   <div class="col-xs-12">
                                    <img src="../img/user.png">
                                         <div class="huge"></div>
-                                        <div class="panel-text">o u r  m a k er s </div>
+                                        <div class="panel-text"> m a k er s </div>
                                     </div>
                                 </div>
                             </div>
@@ -271,6 +282,16 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </a> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="alert alert-info alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <i class="fa fa-info-circle"></i>  <strong>You have no new messages. </strong>
+                            <!-- Click  <a href="" class="alert-link"> here </a> to view your messages. -->
                         </div>
                     </div>
                 </div>
@@ -316,6 +337,11 @@
                             </div>
                         </div>
 <style >
+
+.group-content {
+  color: rgba(72, 74, 96, 0.84);
+}
+
 .myBox {
 
 height: 500px;
@@ -359,10 +385,7 @@ background: #b8babc;
             </div>
             <!-- /.container-fluid -->
 
-        </div>
-        <!-- /#page-wrapper -->
-
-    </div>
+      
     <!-- /#wrapper -->
 
 

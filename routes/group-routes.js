@@ -133,12 +133,12 @@ router.post('/groups/:id/post', ensure.ensureLoggedIn(), (req, res, next) => {
         return;
       } else if (aGroup.members.length > 0) {
         aGroup.members.forEach((oneMember)=>{
-            var members = oneMember.name;
+
             var memberId = oneMember.memberId;
+
             User.findById(memberId,(err, theMember)=>{
               res.render('groups/group-members-view.ejs', {
                 groups: aGroup,
-                members: members,
                 theMember: theMember
               });
             });
@@ -164,15 +164,17 @@ router.post('/groups/:id/post', ensure.ensureLoggedIn(), (req, res, next) => {
   //change everything to group
         Group.findById(
             myGroupID,
-                (err, thefeed) => {  if (err) {  next(err);
+                (err, thefeed) => {
+                  if (err) {  next(err);
                         return;
                     }
+                    thefeed.members.push(addmember);
 
-                thefeed.members.push(addmember);
-
-                thefeed.save((err) => {  if(err) {  next(err);
+                    thefeed.save((err) => {
+                      if(err) {  next(err);
                     return;
                         }
+
 
                     res.redirect(`/groups/${myGroupID}/members`);
             });

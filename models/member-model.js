@@ -5,7 +5,7 @@ const User     = require('./user-model.js');
 const Group = require('./group-model.js');
 
 const memberSchema = new Schema({
-      name: String,
+      content: String,
       memberId: { type: Schema.Types.ObjectId },
 
   },
