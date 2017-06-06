@@ -17,8 +17,6 @@ router.get('/', (req, res, next) => {
   console.log('USER (from Passport middleware)');
   console.log(req.user);
 
-
-
   // Render a completely different view for logged in users
   // if (req.user) {
   //   res.render('logged-in-home.ejs');
@@ -42,13 +40,7 @@ Group.aggregate([{$sample: {size:6}}],
   });
 });
 
-//   Group.find(
-//     { groupOwner: req.user._id },
-//     (err, groupsList) => {
-//       if (err) {
-//         next(err);
-//         return;
-//       }
+//
 //       res.render('index.ejs', {
 //         user: req.user,
 //         groups: groupsList,

@@ -10,19 +10,24 @@ const router      = express.Router();
 const myUploader  = multer({ dest: path.join(__dirname, '../public/uploads' ) });
 
 // router.get('/user/:id', (req, res, next) => {
-router.get('/profile',
-  ensure.ensureLoggedIn('/login'),
-  (req, res, next) => {
-    res.render('index.ejs', {
-      successMessage: req.flash('success')
-    });
-  }
-);
+// router.get('/profile',
+//   ensure.ensureLoggedIn('/login'),
+//   (req, res, next) => {
+//
+//
+//
+//
+//     res.render('index.ejs', {
+//       successMessage: req.flash('success')
+//     });
+//   }
+// );
 
 // router.get('/user/:id', (req, res, next) => {
 router.get('/profile/edit',
   ensure.ensureLoggedIn('/login'),
   (req, res, next) => {
+
     res.render('user/edit-profile-view.ejs', {
       successMessage: req.flash('success')
     });
@@ -37,6 +42,10 @@ router.post('/profile/edit',
     const profileUsername = req.body.profileUsername;
     const currentPassword = req.body.profileCurrentPassword;
     const newPassword = req.body.profileNewPassword;
+
+
+
+
     User.findOne(
       { username: profileUsername },
       { username: 1 },
@@ -59,6 +68,9 @@ router.post('/profile/edit',
         // add updates from form
         req.user.name = req.body.profileName;
         req.user.username = req.body.profileUsername;
+
+
+
         // *********
 
 
@@ -79,23 +91,8 @@ router.post('/profile/edit',
           }
           req.flash('success', 'Changes saved. 👻');
           // ********
-          res.redirect('/profile');
+          res.redirect('/');
         });
-
-        // User.findByIdAndUpdate(
-        //   req.user._id,
-        //   profileChanges,
-        //   (err, theUser) => {
-        //     if (err) {
-        //       next(err);
-        //       return;
-        //     }
-        //
-        //     req.flash('success', 'Changes saved. 👻');
-        //
-        //     res.redirect('/profile/edit');
-        //   }
-        // );
       }
     );
   }
