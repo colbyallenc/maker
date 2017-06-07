@@ -1,5 +1,7 @@
 const mongoose    = require('mongoose');
-mongoose.connect('mongodb://localhost/makerr');
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGODB_URI);
 
 const Group     = require('../models/group-model.js');
 const User      = require('../models/user-model.js');
