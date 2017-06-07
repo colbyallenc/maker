@@ -256,12 +256,14 @@ ul.alert-dropdown {
 
 .panel{
   box-shadow: 0px 5px 20px #888888;
+
 }
 
 .panel-top {
   border-color: #1e2739;
   /*min-height: 90px;*/
   box-shadow: 5px 5px 10px #888888;
+    border: 5px solid white;
 }
 .panel-top > .panel-heading {
   color: #fff;

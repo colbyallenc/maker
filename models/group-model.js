@@ -15,9 +15,11 @@ const groupSchema = new Schema({
     }],
     content: String,
     groupView: String,
+    jobs: [String],
     members: [ Member.schema ],
     posts: [ Post.schema ],
-    tasks: [Task.schema]
+    tasks: [Task.schema],
+
 
     // posts: [ { type: Schema.Types.ObjectId, ref: 'Post' } ]
     // user: [ User.schema ]

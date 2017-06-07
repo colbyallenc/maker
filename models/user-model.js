@@ -9,11 +9,10 @@ const userSchema = new Schema(
       enum: [ 'normal user', 'admin' ],
       default: 'normal user'
       },
+    jobType: String,
     userPhoto: { type: String },
-    skills: { type: String },
-    about: { type: String},
-    hobbies: {type: String},
-
+    about: {type: String},
+    skills: [ String ] ,
     // Traditional registration users
     username: { type: String },
     encryptedPassword: { type: String },

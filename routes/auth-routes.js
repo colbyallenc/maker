@@ -36,6 +36,7 @@ authRoutes.post('/signup',
     const signupUsername = req.body.signupUsername;
     const signupPassword = req.body.signupPassword;
 
+
     // Don't let users submit blank usernames or passwords
     // if (signupUsername === '' || signupPassword === '') {
     //   res.render('auth/signup-view.ejs', {
@@ -78,6 +79,9 @@ authRoutes.post('/signup',
           username: signupUsername,
           encryptedPassword: hashPass,
           userPhoto: `/uploads/${req.file.filename}`,
+          about : req.body.about,
+          skills : req.body.skills,
+
         });
 
         // Save it

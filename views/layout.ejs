@@ -136,9 +136,9 @@
                       </div>
                       <div class="col-md-6 buttons">
                           <ul class="list-inline intro-social-buttons">
-                            <li><a data-target="#signup-button" class="btn btn-default btn-lg portfolio-link" data-toggle="modal"><span class="tag-name">Find a Startup Job</span></a></li><br><br>
-                            <li><a data-target="#login-button" class="btn btn-default btn-lg portfolio-link" data-toggle="modal"><span class="tag-name"> Post a Job</span></a></li><br><br>
-                            <li><a data-target="#login-button" class="btn btn-default btn-lg portfolio-link" data-toggle="modal"><span class="tag-name"> Invest in a Startup </span></a></li>
+                            <li><a href="/groups/jobs" class="btn btn-default btn-lg portfolio-link"><span > Find a Startup Job</span></a></li><br><br>
+                            <li><a href="/groups/new" class="btn btn-default btn-lg portfolio-link"><span >  Post a Job</span></a></li><br><br>
+                            <li><a href="/signup" class="btn btn-default btn-lg portfolio-link"><span >  Sign up </span></a></li>
                           </ul>
                       <!-- </div> -->
                     <!-- </div> -->
@@ -197,16 +197,22 @@
                             <form method="post" action="/signup" enctype="multipart/form-data">
                               <label for="name-input"> Full Name </label>
                               <input  id="name-input" type="text" name="signupName">
-                              <br>
+                              <br>  <br>
                               <label for="username-input"> User name</label>
                               <input  id="username-input" type="text" name="signupUsername">
-                              <br>
+                              <br>  <br>
                               <label for="password-input"> Password </label>
                               <input  id="password-input" type="password" name="signupPassword">
-                              <br>
+                              <br>  <br>
+                              <label for="username-input"> About you: </label>
+                              <input  id="username-input" type="text" name="about">
+                              <br>  <br>
+                              <label for="username-input"> Skills </label>
+                              <input  id="username-input" type="text" name="skills">
+                              <br>  <br>
                               <label for="userphoto-upload">Upload Profile Pic</label>
                               <input id="userphoto-upload" type="file" name="userPhoto">
-                              <br>
+                              <br>  <br>
                               <button class="btn btn-default">Sign Up </button>
                             </form>
                             <a href="/auth/facebook">Log In with Facebook</a>
@@ -237,20 +243,20 @@
                       <div class="col-lg-8 col-lg-offset-2">
                           <div class="modal-body">
                             <div class="inputForm">
-                              <h2> Log In </h2>
+                              <h2> Log In </h2>  <br>  <br>
                               <form method="post" action="/login">
                                 <label for="username-input"> User name </label>
                                 <input  id="username-input" type="text" name="loginUsername">
-                                <br>
+                                <br>  <br>
                                 <label for="password-input"> Password </label>
                                 <input  id="password-input" type="password" name="loginPassword">
-                                <br>
+                                <br>  <br>
                               <button class="btn btn-default"> Log In </button>
-                              </form>
+                              </form>  <br>
                               <a href="/auth/facebook">Log In with Facebook</a>
-                              <br>
+                              <br>  <br>
                               <a href="/auth/google">Log In with Google</a>
-                              <br>
+                              <br>  <br>
                               <p>Don't have an account?<a href="/signup"> Sign Up </a></p>
                             </div>
                           </div>
@@ -259,6 +265,71 @@
               </div>
           </div>
       </div>
+
+
+      <style>
+      /*@import url(https://fonts.googleapis.com/css?family=Roboto:300);*/
+
+.login-page {
+width: 360px;
+padding: 8% 0 0;
+margin: auto;
+}
+.form {
+position: relative;
+z-index: 1;
+background: #FFFFFF;
+max-width: 360px;
+margin: 0 auto 100px;
+padding: 45px;
+text-align: center;
+box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+font-family: "Roboto", sans-serif;
+outline: 0;
+background: #f2f2f2;
+/*#335280*/
+width: 100%;
+border: 0;
+margin: 0 0 15px;
+padding: 15px;
+box-sizing: border-box;
+font-size: 14px;
+}
+.form button {
+font-family: "Roboto", sans-serif;
+text-transform: uppercase;
+outline: 0;
+background: #4CAF50;
+width: 100%;
+border: 0;
+padding: 15px;
+color: #FFFFFF;
+font-size: 14px;
+-webkit-transition: all 0.3 ease;
+transition: all 0.3 ease;
+cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+background: #43A047;
+}
+.form .message {
+margin: 15px 0 0;
+color: #b3b3b3;
+font-size: 12px;
+}
+.form .message a {
+color: #4CAF50;
+text-decoration: none;
+}
+.form .register-form {
+display: none;
+}
+
+
+}
+      </style>
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>

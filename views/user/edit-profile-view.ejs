@@ -40,19 +40,23 @@
       <div class="col-md-3">
         <div class="text-center">
           <form method="post" action="/profile/edit" enctype="multipart/form-data">
-          <img src="<%= user.userPhoto%>" class="avatar img-circle profile-image" alt="avatar">
-          <h6>Upload a different photo...</h6>
-          <input type="file" class="form-control">
+            <img src="<%= user.userPhoto%>" class="avatar img-circle profile-image" alt="avatar">
+            <br>
+            <label for="image-url-input">  </label>
+            <input id="image-url-input" type="file"  name="newImage" class="form-control" value="<%= user.userPhoto %>">
+      <br>
         </form>
         </div>
       </div>
+
+
 
       <!-- edit form column -->
       <div class="col-md-9 personal-info">
         <div class="alert alert-info alert-dismissable">
           <a class="panel-close close" data-dismiss="alert">×</a>
           <i class="fa fa-coffee"></i>
-          This is an <strong>.alert</strong>. Use this to show important messages to the user.
+          This is an <strong>.alert</strong>. Not everything may work due to restless nights.
         </div>
         <h3>Personal info</h3>
 
@@ -72,39 +76,17 @@
           <div class="form-group">
             <label class="col-lg-3 control-label"> User Job Position:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" name="userType">
+              <input class="form-control" type="text" name="aboutChange">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Time Zone:</label>
+            <label class="col-lg-3 control-label"> Skills </label>
             <div class="col-lg-8">
-              <div class="ui-select">
-                <select id="user_time_zone" class="form-control">
-                  <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                  <option value="Alaska">(GMT-09:00) Alaska</option>
-                  <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
-                  <option value="Arizona">(GMT-07:00) Arizona</option>
-                  <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                  <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
-                  <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
-                  <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                </select>
-              </div>
+              <input class="form-control" type="text" name="skillsChange">
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Seeking..</label>
-            <div class="col-lg-8">
-              <div class="ui-select">
-                <select multiple>
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="opel">Opel</option>
-                  <option value="audi">Audi</option>
-                </select>
-              </div>
-            </div>
-          </div>
+
+
 
 
 

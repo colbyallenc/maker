@@ -6,7 +6,7 @@ const Group = require('./group-model.js');
 
 const taskSchema = new Schema({
       content: String,
-      description: String,
+      dueBy: String,
       authorId: { type: Schema.Types.ObjectId },
       comments: [ Comment.schema ],
   },

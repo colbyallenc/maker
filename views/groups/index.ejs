@@ -1,37 +1,74 @@
-  <div id="page-wrapper">
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-12">
-      <h2 class="page-header my-groups"> m y g r o u p s    </h2>
+<style>
+  body {
+    background-color: #F2F1EF !important ;
+    background: url(../img/transparentApp-logo.png)no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 
-<% if (groups.length === 0) { %>
-  <h2> You Don't Have Groups Yet </h2>
-<% } else { %>
+  #page-wrapper {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+  }
 
-<% if (successMessage.length > 0) { %>
-    <div class="success"> <%= successMessage %> </div>
-<% } %>
-
-<% groups.forEach((oneGroup) => { %>
-    <div class="col-lg-4 col-sm-6 text-center">
-        <img class="img-circle img-responsive img-center group-logo" src="<%= oneGroup.groupPhoto %>" alt="">
-
-           <h3> <a href="/groups/<%= oneGroup._id %>">  <%= oneGroup.groupTitle %>    </a>
-             <small>   <%= oneGroup.groupDescription %>  </small>
-           </h3>
+  </style>
 
 
-    </div>
-<% }) %>
-<% } %>
-<hr>
+<div id="page-wrapper">
+
+
+  <!-- <div class="row">
+      <div class="col-lg-9">
+        <div class="col-lg-12"> -->
+
+  <!-- </div>
+  <div class="col-lg-3"></div>
+  </div>
 </div>
-</div>
-</div>
-</div>
+</div> -->
 
- <a href="/groups/new">Create a Group</a>  <br><a href="/"> < back </a>
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header my-groups">  g r o u p s    </h2>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-lg-12">
+
+                  <% if (groups.length === 0) { %>
+                    <h2> You Don't Have Groups Yet </h2>
+                  <% } else { %>
+                    <% if (successMessage.length > 0) { %>
+                        <div class="success"> <%= successMessage %> </div>
+                    <% } %>
+                    <% groups.forEach((oneGroup) => { %>
+                <div class="col-lg-6">
+                    <img class="img-circle img-responsive group-logo" src="<%= oneGroup.groupPhoto %>" alt="">
+                     <h3> <a href="/groups/<%= oneGroup._id %>">  <%= oneGroup.groupTitle %>    </a>
+                      <br> <small>   <%= oneGroup.content %>  </small>
+                     </h3>
+                   </div>
+
+                 <% }) %>
+                 <% } %>
+               </div>
+            </div>
+          </div>
+          <a href="/groups/new">Create a Group</a>  <br><a href="/"> < back </a>
+      </div>
+  </div>
+
+
+
+
+
+    <!-- <div class="col-lg-4 col-sm-6 text-center"> -->
+
+
 
 
 <style>
@@ -44,7 +81,9 @@
 }
 
 .group-logo {
-  width: 300px;
+  width: 200px !important;
+  height: 250px !important;
+  border: 5px solid black;
   /*height: 350px;*/
   /*border: 1px solid none;*/
   /*border-radius: 100%;*/

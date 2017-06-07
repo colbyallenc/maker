@@ -36,12 +36,17 @@ router.get('/profile/edit',
 
 // <form method="post" action="/profile/edit">
 router.post('/profile/edit',
+
   ensure.ensureLoggedIn('/login'),
+  myUploader.single('newImage'),
   (req, res, next) => {
     const profileName = req.body.profileName;
     const profileUsername = req.body.profileUsername;
     const currentPassword = req.body.profileCurrentPassword;
     const newPassword = req.body.profileNewPassword;
+    const newAbout = req.body.aboutChange;
+    const newSkills = req.body.skillsChange;
+    // const newImage = `/uploads/${req.file.filename}`;
 
 
 
@@ -68,6 +73,9 @@ router.post('/profile/edit',
         // add updates from form
         req.user.name = req.body.profileName;
         req.user.username = req.body.profileUsername;
+        req.user.about = req.body.about;
+        req.user.skills= req.body.skills;
+
 
 
 

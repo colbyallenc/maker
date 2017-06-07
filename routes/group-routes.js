@@ -6,7 +6,7 @@ const Group   = require('../models/group-model.js');
 const Member  = require('../models/member-model.js');
 const User    = require('../models/user-model.js');
 const Post    = require('../models/post-model.js');
-const Task   = require('../models/task-model.js');
+const Task    = require('../models/task-model.js');
 const Comment     = require('../models/comment-model.js');
 const bcrypt      = require('bcrypt');
 const passport    = require('passport');
@@ -49,18 +49,33 @@ router.post('/groups',
 
 // GET   /groups
 router.get('/groups', ensure.ensureLoggedIn(), (req, res, next) => {
-    Group.find(
-      { groupOwner: req.user._id },
-      (err, groupsList) => {
-        if (err) {
-          next(err);
-          return;
+    // Group.find(
+    //   { groupOwner: req.user._id },
+    //   (err, groupsList) => {
+    //     if (err) {
+    //       next(err);
+    //       return;
+    //     }
+    Group.aggregate([{$sample: {size:6}}],
+      (err,foundGroups)=>{
+      if (err) {
+        next(err);
+        return;
         }
-        res.render('groups/index.ejs', {
-          // user: req.user._id,
-          groups: groupsList,
-          successMessage: req.flash('success')
+
+       res.render('groups/index.ejs',{
+        successMessage:req.flash('success'),
+        errorMessage: req.flash('error'),
+        groups:foundGroups,
+        user: req.user,
         });
+
+
+        // res.render('groups/index.ejs', {
+        //   // user: req.user._id,
+        //   groups: groupsList,
+        //   successMessage: req.flash('success')
+        // });
       }
     );
   }
@@ -182,6 +197,96 @@ router.post('/groups/:id/post', ensure.ensureLoggedIn(), (req, res, next) => {
         });
     });
 
+
+      router.get('/groups/:id/tasks',  ensure.ensureLoggedIn(), (req, res, next) => {
+          var groupID = req.params.id;
+
+        Group.findById(groupID, (err, aGroup) => {
+          if(err){
+            next(err);
+            return;
+          } else if (aGroup.tasks.length > 0) {
+            aGroup.tasks.forEach((oneTask)=>{
+
+                var taskId = oneTask.taskId;
+
+                User.findById(taskId,(err, theTask)=>{
+                  res.render('groups/new-task-view.ejs', {
+                    groups: aGroup,
+                    tasks: theTask
+                  });
+                });
+              });
+          } else {
+            res.render('groups/new-task-view.ejs', {
+              groups: aGroup,
+            });
+          }
+        });
+      });
+
+
+      // POST     /groups/id
+                              //below make it :groupId
+      router.post('/groups/:id/tasks', (req, res, next) => {
+          // const postID = req.params.id; make this a gorup ID
+          // const author = req.user;
+          const myGroupID = req.params.id;
+
+          const addtask = new Task({
+              taskId: req.user._id
+          });
+      //change everything to group
+            Group.findById(
+                myGroupID,
+                    (err, thefeed) => {
+                      if (err) {  next(err);
+                            return;
+                        }
+                        thefeed.tasks.push(addtask);
+
+                        thefeed.save((err) => {
+                          if(err) {  next(err);
+                        return;
+                            }
+
+
+                        res.redirect(`/groups/${myGroupID}/tasks`);
+                });
+
+            });
+        });
+
+
+        router.post('groups/:id/tasks/:taskid/delete', (req, res, next) => {
+          const taskId = req.params.taskid;
+
+          Task.findByIdAndRemove(taskId, (err, task) => {
+            if (err){ return next(err); }
+            return res.redirect('/groups/:id/tasks');
+          });
+
+        });
+
+
+
+        router.get('/groups/:id/jobs', (req, res, next) => {
+          var myGroupID = req.params.id;
+
+                Group.findById(
+                    myGroupID,
+                        (err, foundGroups) => {
+                          if (err) {  next(err);
+                                return;
+                            }
+
+               res.render('groups/jobs.ejs',{
+                groups:foundGroups,
+                user: req.user,
+                });
+
+            });
+          });
 
 
 module.exports = router;

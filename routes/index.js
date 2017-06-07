@@ -23,7 +23,7 @@ router.get('/', (req, res, next) => {
   // } else {
   //   res.render('index');
   // }
-Group.aggregate([{$sample: {size:6}}],
+  Group.aggregate([{$sample: {size:6}}],
     (err,foundGroups)=>{
     if (err) {
       next(err);
