@@ -15,13 +15,11 @@ const bcrypt             = require('bcrypt');
 const MongoStore         = require('connect-mongo')(session);
 const multer             = require('multer');
 
-// Load our ENVIRONMENT VARIABLES from the .env file in dev
-// (this is for dev only, but in prod it just doesn't do anything)
 require('dotenv').config();
-// Tell node to run the code contained in this file
-// (this sets up passport and our strategies)
+
 require('./config/passport-config.js');
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect('mongodb://localhost/paperplanes');
+// mongoose.connect(process.env.MONGODB_URI);
 
 const app = express();
 
@@ -30,7 +28,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 // default value for title local
-app.locals.title = 'm a k e r .';
+app.locals.title = 'PaperPlanes';
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -41,7 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 app.use( session({
-  secret: 'my first app',
+  secret: 'my second app',
 
   // these two options are there to prevent warnings in terminal
   resave: true,
@@ -76,11 +74,8 @@ app.use('/', index);
 const myAuthRoutes = require('./routes/auth-routes.js');
 app.use('/', myAuthRoutes);
 
-const myUserRoutes = require('./routes/user-routes.js');
-app.use('/', myUserRoutes);
 
-const myGroupRoutes = require('./routes/group-routes.js');
-app.use('/', myGroupRoutes);
+
 
 // ----------------------------------------------------------
 

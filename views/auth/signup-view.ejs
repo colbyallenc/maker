@@ -4,36 +4,14 @@
   <div class="error"> <%= errorMessage %> </div>
 <% } %>
 
-
 <div class="signup-form">
   <form method="post" action="/signup">
-  <label for="name-input"> Full Name </label>
-  <input  id="name-input" type="text" name="signupName">
-  <br>
-
   <label for="username-input"> User name</label>
   <input  id="username-input" type="text" name="signupUsername">
   <br>
-
   <label for="password-input"> Password </label>
   <input  id="password-input" type="password" name="signupPassword">
   <br>
-
   <button> Sign Up </button>
 </form>
-
-<a href="/auth/facebook">
-  Log In with Facebook
-</a>
-<br>
-
-<a href="/auth/google">
-  Log In with Google
-</a>
-<br>
-
-<p>
-  Do you already have an account?
-  <a href="/login"> Log In </a>
-</p>
 </div>
